@@ -376,8 +376,12 @@ def main():
     app.add_handler(CommandHandler("stats",  cmd_stats))
     app.add_handler(conv)
 
-    logger.info("Bot gestartet!")
-    app.run_polling(drop_pending_updates=True)
+     logger.info("Bot gestartet!")
+    app.run_polling(
+        allowed_updates=Update.ALL_TYPES,
+        drop_pending_updates=True
+    )
+
 
 
 if __name__ == "__main__":
